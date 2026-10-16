@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10111a">
+  <meta name="description" content="Character Auction — build your team through strategic character auctions.">
+  <title>Character Auction</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Character Auction Home">
+        <span class="brand-mark">CA</span>
+        <span>CHARACTER<span class="brand-accent"> AUCTION</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page="home" data-i18n="navHome">Home</button>
+        <button class="nav-link" data-page="play" data-i18n="navPlay">Play</button>
+        <button class="nav-link" data-page="profile" data-i18n="navProfile">Profile</button>
+        <button class="nav-link" data-page="settings" data-i18n="navSettings">Settings</button>
+      </nav>
+      <div class="topbar-actions">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="online-label" data-i18n="prototype">Prototype</span>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page active" id="page-home">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">BUILD YOUR DREAM TEAM</span></div>
+            <h1 data-i18n="heroTitle">Your characters.<br><span>Your strategy.</span></h1>
+            <p class="hero-text" data-i18n="heroText">Compete with friends, manage your budget, and win the characters you want in strategic live auctions.</p>
+            <div class="hero-actions">
+              <button class="button primary" data-go="play"><span data-i18n="startPlaying">Start playing</span><span aria-hidden="true"> ↗</span></button>
+              <button class="button secondary" data-go="profile" data-i18n="manageCollection">Manage collection</button>
+            </div>
+            <div class="hero-footnote"><span class="mini-check">✓</span><span data-i18n="heroFootnote">Create a lobby · Invite friends · Build your team</span></div>
+          </div>
+          <div class="hero-art" aria-label="Decorative abstract auction artwork">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-glow"></div>
+            <div class="art-card back-card"><span>?</span><small>UNKNOWN</small></div>
+            <div class="art-card front-card"><div class="card-top"><span>CA / 001</span><span class="rarity">★ ★ ★ ★</span></div><div class="character-sigil">A</div><div class="card-bottom"><strong>YOUR NEXT PICK</strong><small data-i18n="auctionReady">READY FOR AUCTION</small></div></div>
+            <div class="floating-tag tag-top"><span class="tag-dot"></span><span data-i18n="liveAuction">LIVE AUCTION</span></div>
+            <div class="floating-tag tag-bottom"><span class="tag-icon">↗</span><span data-i18n="bidStrategically">BID STRATEGICALLY</span></div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><div class="eyebrow" data-i18n="overview">OVERVIEW</div><h2 data-i18n="everythingYouNeed">Everything you need to play</h2></div>
+          <span class="section-index">01 — 03</span>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><div class="feature-icon purple">♙</div><div class="feature-number">01</div><h3 data-i18n="featureLobbyTitle">Create a lobby</h3><p data-i18n="featureLobbyText">Invite friends with a simple code and set up your match.</p><button class="text-action" data-go="play"><span data-i18n="openLobby">Open lobby</span> ↗</button></article>
+          <article class="feature-card"><div class="feature-icon blue">▦</div><div class="feature-number">02</div><h3 data-i18n="featureCollectionTitle">Build collections</h3><p data-i18n="featureCollectionText">Create character groups with your own images, names, and levels.</p><button class="text-action" data-go="profile"><span data-i18n="editGroups">Edit groups</span> ↗</button></article>
+          <article class="feature-card"><div class="feature-icon orange">⌁</div><div class="feature-number">03</div><h3 data-i18n="featureStrategyTitle">Play your strategy</h3><p data-i18n="featureStrategyText">Manage your budget and decide when to bid or give up.</p><button class="text-action" data-go="play"><span data-i18n="learnMore">Get started</span> ↗</button></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-play">
+        <div class="page-heading"><div><div class="eyebrow" data-i18n="playEyebrow">YOUR NEXT MATCH</div><h1 data-i18n="playTitle">Play with friends.</h1><p data-i18n="playSubtitle">Create a new lobby or join one using its code.</p></div><span class="pill"><span class="status-dot"></span><span data-i18n="demoMode">Demo mode</span></span></div>
+        <div class="play-grid">
+          <article class="panel create-panel"><div class="panel-icon">＋</div><h2 data-i18n="createLobbyTitle">Create a lobby</h2><p data-i18n="createLobbyText">Become the host and choose the match settings.</p><label for="lobbyName" data-i18n="lobbyNameLabel">Lobby name (optional)</label><input id="lobbyName" type="text" maxlength="32" placeholder="Friday night match"><div class="settings-preview"><div><span data-i18n="playersLabel">Players</span><strong>2</strong></div><div><span data-i18n="budgetLabel">Budget / player</span><strong>$20</strong></div><div><span data-i18n="charactersLabel">Characters</span><strong>10</strong></div></div><button class="button primary full" id="createLobby" data-i18n="createLobbyButton">Create demo lobby</button><p class="small-note" data-i18n="demoNote">Demo only: lobby codes are not yet shared with other browsers.</p></article>
+          <article class="panel join-panel"><div class="panel-icon blue-icon">⌁</div><h2 data-i18n="joinLobbyTitle">Join a lobby</h2><p data-i18n="joinLobbyText">Already have a code? Enter it below.</p><label for="lobbyCode" data-i18n="lobbyCodeLabel">Lobby code</label><input id="lobbyCode" type="text" maxlength="8" placeholder="AB12CD" autocomplete="off"><button class="button secondary full" id="joinLobby" data-i18n="joinLobbyButton">Join demo lobby</button><div class="message" id="lobbyMessage" role="status" aria-live="polite"></div></article>
+        </div>
+        <article class="panel lobby-preview hidden" id="lobbyPreview"><div class="lobby-header"><div><div class="eyebrow" data-i18n="activeLobby">ACTIVE LOBBY</div><h2 id="lobbyTitle">Lobby</h2></div><div class="code-chip"><span data-i18n="lobbyCodeLabel">Lobby code</span><strong id="createdCode">------</strong><button id="copyCode" class="copy-button" data-i18n="copy">Copy</button></div></div><div class="player-list"><div class="player-item"><span class="avatar">Y</span><div><strong data-i18n="youPlayer">You (Host)</strong><small data-i18n="hostStatus">Host · Ready</small></div><span class="ready">✓</span></div><div class="player-item"><span class="avatar muted-avatar">?</span><div><strong data-i18n="waitingPlayer">Waiting for player</strong><small data-i18n="shareCode">Share the code to invite a friend</small></div><span class="waiting" data-i18n="waiting">WAITING</span></div></div><p class="small-note" data-i18n="lobbyPreviewNote">This is a local preview. Real-time multiplayer is added after Supabase setup.</p></article>
+      </section>
+
+      <section class="page" id="page-profile">
+        <div class="page-heading"><div><div class="eyebrow" data-i18n="profileEyebrow">YOUR PERSONAL SPACE</div><h1 data-i18n="profileTitle">Your profile.</h1><p data-i18n="profileSubtitle">Your collections and saved match presets will live here.</p></div><span class="pill"><span class="status-dot"></span><span data-i18n="localPreview">Local preview</span></span></div>
+        <div class="profile-layout">
+          <aside class="profile-sidebar panel"><div class="profile-avatar">CA</div><h2 data-i18n="guestUser">Guest user</h2><p data-i18n="notSignedIn">Not signed in</p><div class="profile-divider"></div><div class="profile-stat"><span data-i18n="groupsLabel">Groups</span><strong id="groupCount">0</strong></div><div class="profile-stat"><span data-i18n="presetsLabel">Presets</span><strong>0</strong></div><button class="button secondary full" id="showAuthInfo" data-i18n="accountSetupLater">Account setup in step 2</button></aside>
+          <div class="profile-main">
+            <div class="tab-row"><button class="tab-button active" data-profile-tab="groups" data-i18n="characterGroups">Character groups</button><button class="tab-button" data-profile-tab="presets" data-i18n="gamePresets">Game presets</button></div>
+            <div id="groupsTab">
+              <div class="inline-heading"><div><h2 data-i18n="yourGroups">Your groups</h2><p data-i18n="groupsDescription">Organize characters into reusable collections.</p></div><button class="button primary" id="addGroup"><span>＋</span> <span data-i18n="newGroup">New group</span></button></div>
+              <div id="groupList" class="group-list"><div class="empty-state"><div class="empty-symbol">▦</div><h3 data-i18n="noGroups">No groups yet</h3><p data-i18n="noGroupsText">Create a group to start building your character collection.</p><button class="button secondary" id="emptyCreateGroup" data-i18n="createFirstGroup">Create your first group</button></div></div>
+            </div>
+            <div id="presetsTab" class="hidden">
+              <div class="inline-heading"><div><h2 data-i18n="savedPresets">Saved presets</h2><p data-i18n="presetsDescription">Reusable settings for your future matches.</p></div><button class="button primary" id="addPreset"><span>＋</span> <span data-i18n="newPreset">New preset</span></button></div>
+              <div id="presetList" class="group-list"><div class="empty-state"><div class="empty-symbol">⚙</div><h3 data-i18n="noPresets">No presets yet</h3><p data-i18n="noPresetsText">Save your favorite match settings here.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div class="page-heading"><div><div class="eyebrow" data-i18n="settingsEyebrow">MAKE IT YOURS</div><h1 data-i18n="settingsTitle">Settings.</h1><p data-i18n="settingsSubtitle">Choose how Character Auction feels for you.</p></div></div>
+        <article class="panel settings-panel"><div class="setting-row"><div><h2 data-i18n="languageTitle">Language</h2><p data-i18n="languageText">Choose the language used throughout the website.</p></div><div class="language-options"><button class="language-option active" data-language="en">English</button><button class="language-option" data-language="de">Deutsch</button></div></div><div class="setting-row"><div><h2 data-i18n="appearanceTitle">Appearance</h2><p data-i18n="appearanceText">The first version uses a dark theme.</p></div><span class="pill"><span class="theme-swatch"></span><span data-i18n="darkMode">Dark mode</span></span></div><div class="setting-row"><div><h2 data-i18n="dataTitle">Data and privacy</h2><p data-i18n="dataText">This prototype stores only demo preferences in this browser. Do not enter real passwords here.</p></div><span class="pill warning-pill" data-i18n="prototypeLabel">Prototype</span></div></article>
+      </section>
+    </main>
+    <footer class="footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">CA</span><span>CHARACTER<span class="brand-accent"> AUCTION</span></span></a><span data-i18n="footerText">A fan-made auction game prototype.</span><span>v0.1.0</span></footer>
+  </div>
+
+  <dialog id="groupDialog" class="modal">
+    <form method="dialog" id="groupForm">
+      <div class="modal-header"><div><div class="eyebrow" data-i18n="collectionEditor">COLLECTION EDITOR</div><h2 data-i18n="createGroupTitle">Create a group</h2></div><button class="icon-button" value="cancel" aria-label="Close">×</button></div>
+      <label for="groupName" data-i18n="groupNameLabel">Group name</label><input id="groupName" type="text" maxlength="48" required placeholder="My anime collection">
+      <label for="groupVisibility" data-i18n="visibilityLabel">Visibility</label><select id="groupVisibility"><option value="private" data-i18n="privateOption">Private</option><option value="listed" data-i18n="listedOption">Listed (shareable later)</option></select>
+      <p class="small-note" data-i18n="groupDemoNote">Groups are saved in this browser for this prototype. Account syncing comes in step 2.</p>
+      <div class="modal-actions"><button class="button secondary" value="cancel" data-i18n="cancel">Cancel</button><button class="button primary" id="saveGroup" value="default" data-i18n="saveGroup">Save group</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="presetDialog" class="modal">
+    <form method="dialog" id="presetForm">
+      <div class="modal-header"><div><div class="eyebrow" data-i18n="matchPreset">MATCH PRESET</div><h2 data-i18n="createPresetTitle">Create a preset</h2></div><button class="icon-button" value="cancel" aria-label="Close">×</button></div>
+      <label for="presetName" data-i18n="presetNameLabel">Preset name</label><input id="presetName" type="text" maxlength="48" required placeholder="Classic 2-player">
+      <div class="form-grid"><div><label for="presetPlayers" data-i18n="playersLabel">Players</label><input id="presetPlayers" type="number" min="2" max="8" value="2" required></div><div><label for="presetBudget" data-i18n="budgetLabel">Budget per player ($)</label><input id="presetBudget" type="number" min="1" max="100000" value="20" required></div><div><label for="presetCharacters" data-i18n="charactersLabel">Characters in match</label><input id="presetCharacters" type="number" min="2" max="500" value="10" required></div><div><label for="presetSlots" data-i18n="slotsLabel">Slots per player</label><input id="presetSlots" type="number" min="1" max="50" value="5" required></div></div>
+      <div class="modal-actions"><button class="button secondary" value="cancel" data-i18n="cancel">Cancel</button><button class="button primary" id="savePreset" value="default" data-i18n="savePreset">Save preset</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="infoDialog" class="modal">
+    <form method="dialog"><div class="modal-header"><h2 data-i18n="comingSoonTitle">Coming in step 2</h2><button class="icon-button" value="cancel" aria-label="Close">×</button></div><p data-i18n="comingSoonText">We will connect Supabase authentication and private cloud storage next. This prototype does not create accounts or secure sessions yet.</p><div class="modal-actions"><button class="button primary" value="default" data-i18n="gotIt">Got it</button></div></form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
